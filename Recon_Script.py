@@ -11,16 +11,10 @@ def advrecon(target):
 
     if not os.path.exists(str(target)):
         os.makedirs(str(target))
-    # subprocess.call("dnsrecon -d " + str(target) + " -a > " + target + "_dnsoutput", shell=True)
-    # # target = "http://" + target
-    # subprocess.call("wafw00f " + "http://" + str(target) + " > "  + target + "_wafw00f", shell=True)
-    # subprocess.call("cmseek -u " + "http://" + str(target) + " > "  + target + "_cmseek", shell=True)
     subprocess.call("dnsrecon -d " + str(target) + " -a", shell=True)
-    # target = "http://" + target
     subprocess.call("wafw00f " + "http://" + str(target), shell=True)
     subprocess.call("cmseek -u " + "http://" + str(target), shell=True)
     subprocess.call("dnsrecon -d " + str(target) + " -a > " + str(target) + "/" + target + "_dnsoutput", shell=True)
-    # target = "http://" + target
     subprocess.call("wafw00f " + "http://" + str(target) + " > " + str(target) + "/" + target + "_wafw00f", shell=True)
     subprocess.call("cmseek -u " + "http://" + str(target) + " > " + str(target) + "/" + target + "_cmseek", shell=True)
     print("Complete. See " + target + " directory for output files")
@@ -30,7 +24,6 @@ def advrecon(target):
 def main():
     #declare variable called target and set it to the first argument
     target = sys.argv[1]
-    # target = "zonetransfer.me"
     advrecon(target)
 
 
