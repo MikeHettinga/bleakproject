@@ -13,10 +13,10 @@ def advrecon(target):
         os.makedirs(str(target))
     subprocess.call("dnsrecon -d " + str(target) + " -a", shell=True)
     subprocess.call("wafw00f " + "http://" + str(target), shell=True)
-    subprocess.call("cmseek -u " + "http://" + str(target), shell=True)
+    subprocess.call("cmseek -u " + "http://" + str(target) + " --follow-redirect", shell=True)
     subprocess.call("dnsrecon -d " + str(target) + " -a > " + str(target) + "/" + target + "_dnsoutput", shell=True)
     subprocess.call("wafw00f " + "http://" + str(target) + " > " + str(target) + "/" + target + "_wafw00f", shell=True)
-    subprocess.call("cmseek -u " + "http://" + str(target) + " > " + str(target) + "/" + target + "_cmseek", shell=True)
+    subprocess.call("cmseek -u " + "http://" + str(target) + " --follow-redirect > " + str(target) + "/" + target + "_cmseek", shell=True)
     print("Complete. See " + target + " directory for output files")
 
 

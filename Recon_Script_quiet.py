@@ -17,8 +17,8 @@ def advrecon(target):
     print("Starting Wafw00f scan")
     subprocess.call("wafw00f " + "http://" + str(target) + " > " + str(target) + "/" + target + "_wafw00f", shell=True)
     print("Wafw00f Scan Complete")
-    print("Starting CMSeek Scan. If command prompt not automatically returned after 10 seconds, press Enter")
-    subprocess.call("cmseek -u " + "http://" + str(target) + " > " + str(target) + "/" + target + "_cmseek", shell=True)
+    print("Starting CMSeek Scan. )
+    subprocess.call("cmseek -u " + "http://" + str(target) + " --follow-redirect > " + str(target) + "/" + target + "_cmseek", shell=True)
     print("CMSeek Scan Complete")
     print("Advanced Recon Scan Complete. See " + target + " directory for output files")
 
