@@ -7,13 +7,21 @@ def linepull(file):
 
     for line in file:
         line = line.rstrip()
-        line = line.lstrip()
-        if "[*]" in line:
-            print(line)
-        elif "[-]" in line:
-            print(line)
-        elif "[+]" in line:
-            print(line)
+        if "[+] Zone Transfer was successful!!" in line:
+            print("[+] Zone Transfer was successful!!")
+            break
+        elif "[-] Zone Transfer Failed" in line:
+            print("[-] Zone Transfer Failed")
+            break
+    if "successful" not in file.read():
+        print("[-] Zone Transfer Failed")
+        # else:
+        #     print("[-] Zone Transfer Failed")
+        # break
+
+
+
+
 
         # for char in line:
         #     # make char the search character for designating lines to pull.
